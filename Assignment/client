@@ -1,0 +1,73 @@
+import socket
+import threading
+import sys
+
+class ChatClient:
+    def __init__(self, host='127.0.0.1', port=55555):
+        """
+        Initialize the chat client.
+        
+        Args:
+            host (str): Server host IP address
+            port (int): Server port number
+        """
+        self.host = host
+        self.port = port
+        
+        try:
+            # Create socket and connect to server
+            self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.client_socket.connect((self.host, self.port))
+            print(f"[*] Connected to {self.host}:{self.port}")
+        except Exception as e:
+            print(f"[!] Connection error: {e}")
+            sys.exit(1)
+    
+    def receive_messages(self):
+        """
+        Continuously receive and display messages from the server.
+        """
+        while True:
+            try:
+                message = self.client_socket.recv(1024).decode('utf-8')
+                if message:
+                    print(message)
+                else:
+                    break
+            except Exception as e:
+                print(f"[!] Error receiving message: {e}")
+                break
+    
+    def send_messages(self):
+        """
+        Allow user to send messages to the server.
+        """
+        try:
+            while True:
+                message = input()
+                if message.lower() == 'quit':
+                    break
+                self.client_socket.send(message.encode('utf-8'))
+        except Exception as e:
+            print(f"[!] Error sending message: {e}")
+        finally:
+            self.client_socket.close()
+    
+    def start(self):
+        """
+        Start the chat client with threads for sending and receiving.
+        """
+        # Thread to receive messages
+        receive_thread = threading.Thread(target=self.receive_messages)
+        receive_thread.daemon = True
+        receive_thread.start()
+        
+        # Main thread for sending messages
+        self.send_messages()
+
+def main():
+    client = ChatClient()
+    client.start()
+
+if __name__ == "__main__":
+    main()
