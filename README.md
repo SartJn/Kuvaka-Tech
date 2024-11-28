@@ -49,5 +49,3 @@ python client.py
 - Developed for Kuvaka Tech Backend Developer Internship
 - Demonstrates socket programming and concurrent network communication
 
-## License
-MIT License
