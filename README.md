@@ -1,5 +1,7 @@
 # Real-Time Chat Application
 
+# Submitted by Sarthak Jain 0901AD211051
+
 ## Overview
 This is a Python-based real-time chat application using socket programming and threading, developed as a solution for the Kuvaka Tech Backend Developer internship task.
 
