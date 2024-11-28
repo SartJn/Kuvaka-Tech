@@ -1,49 +1,53 @@
-## Real-Time Chat Application
+# Real-Time Chat Application
 
-Overview
+## Overview
 This is a Python-based real-time chat application using socket programming and threading, developed as a solution for the Kuvaka Tech Backend Developer internship task.
 
-Features
+## Features
 - Multithreaded server handling multiple client connections
 - Real-time message broadcasting
 - Simple text-based client interface
 
-Technical Specifications
+## Technical Specifications
 - Language: Python 3.8+
 - Communication: Socket Programming
 - Concurrency: Threading
 
-Prerequisites
+## Prerequisites
 - Python 3.8 or higher
 - Standard Python libraries (socket, threading)
 
-Setup and Running
-Server
+## Setup and Running
+
+### Server
+```bash
 python server.py
+```
 
-Client
+### Client
 Open multiple terminal windows and run:
+```bash
 python client.py
+```
 
-
-Architecture
+## Architecture
 - Server uses threading to handle multiple client connections concurrently
 - Each client connection is managed in a separate thread
 - Broadcasts messages to all connected clients except the sender
 
-Design Choices
+## Design Choices
 - Used threading for concurrent client handling
 - Implemented error handling for network disconnections
 - Simple, clean interface focusing on core functionality
 
-Limitations and Potential Improvements
+## Limitations and Potential Improvements
 - No persistent message storage
 - Basic error handling
 - No authentication mechanism
 
-Submission Details
+## Submission Details
 - Developed for Kuvaka Tech Backend Developer Internship
 - Demonstrates socket programming and concurrent network communication
 
-License
+## License
 MIT License
