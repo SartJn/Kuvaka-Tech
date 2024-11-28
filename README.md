@@ -1,4 +1,4 @@
-Real-Time Chat Application
+## Real-Time Chat Application
 
 Overview
 This is a Python-based real-time chat application using socket programming and threading, developed as a solution for the Kuvaka Tech Backend Developer internship task.
